@@ -59,7 +59,7 @@ export default function Component() {
   return (
     <div className="container">
       <div className="views">{views} Pageview</div>
-      <div className="price-slider">
+      <div className="slider-container">
         <input
           ref={priceRef}
           onChange={changePricing}
@@ -76,6 +76,7 @@ export default function Component() {
         <span className="amount">${price}</span>
         <span className="rate">/ {yearly ? 'year' : 'month'}</span>
       </div>
+
       <div className="billing">
         <div>Monthly Billing</div>
         <label className="switch" onChange={() => setYearly(!yearly)}>

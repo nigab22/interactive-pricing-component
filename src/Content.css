@@ -23,7 +23,7 @@
   text-transform: uppercase;
 }
 
-.price-slider {
+.slider-container {
   width: 279px;
   height: 40px;
   margin: 40px 0 15px 0;
@@ -168,8 +168,19 @@ button {
     height: 397px;
   }
 
+  .views {
+    align-self: flex-start;
+    margin-left: 60px;
+  }
+
+  .price {
+    margin: -120px 65px 0 0;
+    align-self: flex-end;
+  }
+
   .features-container {
     min-width: 570px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -179,14 +190,19 @@ button {
     text-align: left;
   }
 
-  .range-slider,
-  .price-slider {
+  .slider-container,
+  .range-slider {
     width: 444px;
+  }
+
+  .range-slider {
+    margin-top: 10px;
   }
 
   .billing {
     width: 410px;
     justify-content: flex-end;
+    margin-top: 90px;
   }
 
   .discount {
