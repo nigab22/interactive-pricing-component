@@ -18,7 +18,7 @@
 .views {
   font-weight: 800;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 35px;
   letter-spacing: 1.71429px;
   text-transform: uppercase;
 }
@@ -51,7 +51,6 @@
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0 10px 40px #10d8c4;
-
   cursor: pointer;
 }
 
@@ -96,12 +95,12 @@
   justify-content: center;
   width: 272px;
   height: 22px;
-  margin: 20px 0 20px 0;
+  margin: 20px 0 30px 0;
 }
 
 .discount {
   display: flex;
-  width: 41px;
+  width: 42px;
   height: 19px;
   margin-left: 10px;
   justify-content: center;
@@ -112,6 +111,20 @@
   font-size: 10px;
   line-height: 14px;
   color: #ff8d68;
+}
+
+.discount > .text-mobile {
+  visibility: visible;
+  margin-left: 40px;
+}
+
+.discount > .text-desktop {
+  visibility: hidden;
+}
+
+.features-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .features-list {
@@ -147,4 +160,53 @@ button {
   border: none;
   outline-style: none;
   cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    min-width: 540px;
+    height: 397px;
+  }
+
+  .features-container {
+    min-width: 570px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .features-list {
+    text-align: left;
+  }
+
+  .range-slider,
+  .price-slider {
+    width: 444px;
+  }
+
+  .billing {
+    width: 410px;
+    justify-content: flex-end;
+  }
+
+  .discount {
+    width: 100px;
+  }
+
+  .discount > .text-mobile {
+    visibility: hidden;
+  }
+
+  .discount > .text-desktop {
+    visibility: visible;
+    margin-left: -65px;
+  }
+
+  button {
+    align-self: center;
+  }
+
+  hr {
+    width: 540px;
+  }
 }

@@ -11,11 +11,12 @@ export default function Component() {
   const [discount, setDiscount] = useState(0);
   const priceRef = useRef(0);
 
-  const changePricing = () => {
-    const calculatePrice = (amount) => {
-      return (amount * months - amount * months * discount).toFixed(2);
-    };
+  //Helper function to calculate monthly or yearly price
+  const calculatePrice = (amount) => {
+    return (amount * months - amount * months * discount).toFixed(2);
+  };
 
+  const changePricing = () => {
     let val = priceRef.current.value;
     switch (val) {
       case '1':
@@ -38,6 +39,9 @@ export default function Component() {
         setPrice(calculatePrice(36));
         setViews('1M');
         break;
+      default:
+        setPrice(calculatePrice(16));
+        setViews('100K');
     }
   };
 
@@ -45,13 +49,12 @@ export default function Component() {
     if (yearly) {
       setMonths(12);
       setDiscount(0.25);
-      changePricing();
     } else {
       setMonths(1);
       setDiscount(0);
-      changePricing();
     }
-  }, [yearly]);
+    changePricing();
+  }, [months, yearly]);
 
   return (
     <div className="container">
@@ -80,24 +83,29 @@ export default function Component() {
           <span className="slider round"></span>
         </label>
         <div>Yearly Billing</div>
-        <div className="discount">-25%</div>
+        <div className="discount">
+          <span className="text-mobile">-25%</span>
+          <span className="text-desktop">25% discount</span>
+        </div>
       </div>
       <hr />
-      <div className="features-list">
-        <p>
-          <img src={checkmark} alt="checkmark" />
-          Unlimited websites
-        </p>
-        <p>
-          <img src={checkmark} alt="checkmark" />
-          100% data ownership
-        </p>
-        <p>
-          <img src={checkmark} alt="checkmark" />
-          Email reports
-        </p>
+      <div className="features-container">
+        <div className="features-list">
+          <p>
+            <img src={checkmark} alt="checkmark" />
+            Unlimited websites
+          </p>
+          <p>
+            <img src={checkmark} alt="checkmark" />
+            100% data ownership
+          </p>
+          <p>
+            <img src={checkmark} alt="checkmark" />
+            Email reports
+          </p>
+        </div>
+        <button>Start my trial</button>
       </div>
-      <button>Start my trial</button>
     </div>
   );
 }
